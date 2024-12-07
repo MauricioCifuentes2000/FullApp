@@ -14,7 +14,7 @@ export const fetchUserDetails = async () => {
             const message = error.response.data.error || 'Algo salió mal. Intenta nuevamente.';
             return { success: false, message }; // Si el backend devuelve un error
         }
-        // Error en la solicitud o error genérico
+        // Error en la solicitud 
         return { success: false, message: 'Algo salió mal. Intenta nuevamente.' };
     }
 };
