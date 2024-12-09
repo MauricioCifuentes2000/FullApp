@@ -6,6 +6,7 @@ import AddGoal from '../screens/AddGoal';
 import GoalsList from '../screens/GoalsList';
 import { AuthContext } from '../context/AuthContext';
 import Login from '../screens/Login';
+import Register from '../screens/Register';  // Importa la pantalla de registro
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -17,12 +18,12 @@ const GoalsStack = () => {
       <Stack.Screen 
         name="GoalsList" 
         component={GoalsList} 
-        options={{ title: 'Lista de Objetivos' }} 
+        options={{ title: 'Lista de Casos' }} 
       />
       <Stack.Screen 
         name="AddGoal" 
         component={AddGoal} 
-        options={{ title: 'Agregar Objetivo' }} 
+        options={{ title: 'Agregar Casos' }} 
       />
     </Stack.Navigator>
   );
@@ -44,15 +45,22 @@ const AppNavigator = () => {
           <Drawer.Screen 
             name="Goals" 
             component={GoalsStack} 
-            options={{ title: 'Objetivos' }} 
+            options={{ title: 'Lista' }} 
           />
         </>
       ) : (
-        <Drawer.Screen 
-          name="Login" 
-          component={Login} 
-          options={{ headerShown: false }} 
-        />
+        <>
+          <Drawer.Screen 
+            name="Login" 
+            component={Login} 
+            options={{ headerShown: false }} 
+          />
+          <Drawer.Screen 
+            name="Register" 
+            component={Register} 
+            options={{ headerShown: false }} // No se mostrará en el Drawer
+          />
+        </>
       )}
     </Drawer.Navigator>
   );

@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import AppButton from '../components/AppButton';
 import { AuthContext } from '../context/AuthContext';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useContext(AuthContext);
@@ -20,7 +20,8 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Iniciar Sesión</Text>
+      <Text style={styles.title}>Despacho Juridico EGT</Text>
+      <Text style={styles.title2}>Iniciar Sesión</Text>
       <TextInput
         style={styles.input}
         placeholder="Correo electrónico"
@@ -35,6 +36,11 @@ const Login = () => {
         onChangeText={setPassword}
       />
       <AppButton title="Entrar" onPress={handleLogin} />
+      
+      {/* Enlace para ir a la pantalla de Registro */}
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.link}>¿No tienes cuenta? Regístrate aquí</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -46,6 +52,11 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
+    fontSize: 30,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  title2: {
     fontSize: 24,
     textAlign: 'center',
     marginBottom: 20,
@@ -56,6 +67,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginBottom: 10,
+  },
+  link: {
+    color: '#007BFF',
+    textAlign: 'center',
+    marginTop: 10,
   },
 });
 

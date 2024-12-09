@@ -19,13 +19,13 @@ const Home = ({ navigation }) => {
   return (
     <ScreenWrapper>
       <View style={styles.container}>
-        <Text style={styles.title}>Bienvenido al Gestor de OKR</Text>
+        <Text style={styles.title}>Bienvenido</Text>
         <AppButton 
-          title="Ir a Agregar Objetivo" 
+          title="Ir a Agregar Caso" 
           onPress={() => navigation.navigate('Goals', { screen: 'AddGoal' })} 
         />
         <AppButton 
-          title="Ir a Lista de Objetivos" 
+          title="Ir a Lista de Casos" 
           onPress={() => navigation.navigate('Goals', { screen: 'GoalsList' })} 
         />
         <AppButton 

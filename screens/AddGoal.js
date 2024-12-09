@@ -26,7 +26,7 @@ const AddGoal = () => {
       });
 
       if (response.status === 201) {
-        Alert.alert('Éxito', 'Objetivo guardado correctamente');
+        Alert.alert('Éxito', 'Objeto guardado correctamente');
         setFormData({
           title: '',
           description: '',
@@ -35,18 +35,18 @@ const AddGoal = () => {
           check_date: '',
         });
       } else {
-        Alert.alert('Error', 'No se pudo guardar el objetivo');
+        Alert.alert('Error', 'No se pudo guardar el objeto');
       }
     } catch (error) {
-      console.error('Error al guardar el objetivo:', error);
-      Alert.alert('Error', 'Hubo un problema al guardar el objetivo');
+      console.error('Error al guardar el objeto:', error);
+      Alert.alert('Error', 'Hubo un problema al guardar el objeto');
     }
   };
 
   return (
     <ScreenWrapper>
       <View style={styles.container}>
-        <Navbar title="Agregar Objetivo" />
+        <Navbar title="Agregar Objeto" />
         <TextInput
           style={styles.input}
           placeholder="Título"
@@ -61,13 +61,13 @@ const AddGoal = () => {
         />
         <TextInput
           style={styles.input}
-          placeholder="¿Qué hacer?"
+          placeholder="Cliente"
           value={formData.what_to_do}
           onChangeText={(text) => setFormData({ ...formData, what_to_do: text })}
         />
         <TextInput
           style={styles.input}
-          placeholder="¿Cuánto hacer?"
+          placeholder="Juez"
           value={formData.how_much_to_do}
           onChangeText={(text) => setFormData({ ...formData, how_much_to_do: text })}
         />
@@ -77,7 +77,7 @@ const AddGoal = () => {
           value={formData.check_date}
           onChangeText={(text) => setFormData({ ...formData, check_date: text })}
         />
-        <AppButton title="Guardar Objetivo" onPress={handleSaveGoal} />
+        <AppButton title="Guardar Caso" onPress={handleSaveGoal} />
       </View>
     </ScreenWrapper>
   );
